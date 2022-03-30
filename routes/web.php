@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('index');
+})->name('inicio');
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
 
 Route::get('/ecoponto', function () {
     return view('site.ecoponto');
@@ -24,3 +28,6 @@ Route::get('/ecoponto', function () {
 Route::get('/contato', function () {
     return view('site.contato');
 })->name('site.contato');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

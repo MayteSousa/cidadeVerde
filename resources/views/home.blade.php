@@ -1,33 +1,28 @@
-@extends('layouts.master')
+@extends('layouts.app')
+@section('title')
+     - {{ __('Dashboard') }}
+@endsection
+
 @section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Dashboard') }}</div>
 
-      <!-- Header -->
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-          <section id="header">
-              <div class="inner">
-                  <span class="icon solid major fa-cloud"></span>
-                  <h1> <strong>Cidade Verde</strong><br /></h1>
-                  <p>Reuze, Reduza, Recicle</p>
-                  <ul class="actions special">
-                      <li><a href="#one" class="button scrolly">Iniciar</a></li>
-                  </ul>
-              </div>
-          </section>
-
-      <!-- One -->
-          <section id="one" class="main style1">
-              <div class="container">
-                  <div class="row gtr-100">
-                      <div class="col-6 col-12-medium">
-                          <header class="major">
-                              <h2>Quem Somos<br /></h2>
-                          </header>
-                          <p>Somos uma associação sem fins lucrativos, com o objetivo de evitar o descarte de materiais inservíveis e itens recicláveis, que não possuem mais utilidade, em locais irregulares causando transtornos urbanos como obstruções na rede de drenagem, aspecto de local sujo, além de servir como criadouros de insetos. Indicamos estabelecimentos que recebem Vidros, plásticoas, metais, madeiras, pilhas, óleo de cozinha, pneus, restos de móveis, dentre outros itens.</p>
-                      </div>
-                      <div class="col-6 col-12-medium imp-medium">
-                          <span class="image fit"><img src="assets/images/fundo.png" alt="" /></span>
-                      </div>
-                  </div>
-              </div>
-          </section>
+                        {{ __('You are logged in!') }}
+                    </div>
+                </div>
+                <br />
+                <h1>{{ Auth::user()->name }}, Bem vindo(a) ao Cidade Verde </h1>
+            </div>
+        </div>
+    </div>
 @endsection
