@@ -257,7 +257,7 @@ return [
         [
             'text'       => 'Usuários',
             'icon_color' => 'green',
-            'url'        => 'usuario',
+            'url'        => '#',
         ],
         [
             'text'       => 'Ecopontos',

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\UserController;
+use \App\Http\Controllers\ProfileUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +34,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Route::resource('usuario', UsuarioController::class);
-
 //PRECISA AUTENTICAR NO SISTEMA E SER ADMIN
 //Route::resource('usuario', UserController::class)->middleware(['auth','admin']);
+Route::resource('usuario', UserController::class)->middleware(['auth']);
 
 /*Route::get('/profile', function () {
     return view('profile.index');
