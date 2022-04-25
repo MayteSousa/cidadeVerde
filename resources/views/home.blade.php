@@ -1,28 +1,85 @@
-@extends('layouts.app')
-@section('title')
-     - {{ __('Dashboard') }}
-@endsection
+<!-- adminlte -->
+
+@extends('adminlte::page')
+
+@section('title', 'Cidade Verde - Painel de Controle')
+
+@section('content_header')
+    <h1>{{ __('Dashboard') }}</h1>
+@stop
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+    <p>{{ Auth::user()->name }}, {{ __('Welcome') }} ao Cidade Verde</p>
+    <h3 style="color:Tomato">Apenas o CRUD usuário está funcionando</h3>
+    <div class="row">
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
 
-                        {{ __('You are logged in!') }}
-                    </div>
+        <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>53<sup style="font-size: 20px"></sup></h3>
+                    <p>Usuários</p>
                 </div>
-                <br />
-                <h1>{{ Auth::user()->name }}, Bem vindo(a) ao Cidade Verde </h1>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
+
+        <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>44</h3>
+                    <p>Ecopontos</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>150</h3>
+                    <p>Administradores</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>65</h3>
+                    <p>Apenas Visitantes</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
     </div>
-@endsection
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script>
+        console.log('Hi!');
+    </script>
+@stop
