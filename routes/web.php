@@ -37,14 +37,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //PRECISA AUTENTICAR NO SISTEMA E SER ADMIN
 //Route::resource('usuario', UserController::class)->middleware(['auth','admin']);
 Route::resource('usuario', UserController::class)->middleware(['auth']);
+//Route::resource('ecoponto', EcopontoController::class)->middleware(['auth']);
+//Route::resource('administrador', AdministradorController::class)->middleware(['auth']);
 
-/*Route::get('/profile', function () {
+Route::get('/profile', function () {
     return view('profile.index');
 })->name('profile')->middleware(['auth']);
 
-//Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password')->middleware(['auth']);
+Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password')->middleware(['auth']);
 
-//Route::post('/change-password', [UserController::class, 'updatePassword'])->name('update-password')->middleware(['auth']);
+Route::post('/change-password', [UserController::class, 'updatePassword'])->name('update-password')->middleware(['auth']);
 
 /*Route::get('/teste', function () {
     return view('');

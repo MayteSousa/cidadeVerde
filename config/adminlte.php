@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Cidade Verde',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -194,7 +194,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => 'profile',
 
     /*
     |--------------------------------------------------------------------------
@@ -245,19 +245,19 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => 'auth/passwords/change',
             'icon' => 'fas fa-fw fa-lock',
         ],
         ['header' => 'Clientes'],
         [
             'text'       => 'Usuários',
             'icon_color' => 'green',
-            'url'        => '#',
+            'url'        => 'usuario',
         ],
         [
             'text'       => 'Ecopontos',
