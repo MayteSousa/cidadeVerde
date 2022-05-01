@@ -188,13 +188,14 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'inicio',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => 'profile',
+    'change_password' => 'change-password',
 
     /*
     |--------------------------------------------------------------------------
@@ -250,7 +251,7 @@ return [
         ],
         [
             'text' => 'change_password',
-            'url'  => 'auth/passwords/change',
+            'url'  => 'change-password',
             'icon' => 'fas fa-fw fa-lock',
         ],
         ['header' => 'Clientes'],

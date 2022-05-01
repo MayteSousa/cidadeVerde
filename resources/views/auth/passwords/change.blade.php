@@ -41,7 +41,7 @@
                             </div>
                             
                            <div class="row mb-3">
-                                <label for="newPasswordInput" class="col-md-4 col-form-label text-md-end">New Password</label>
+                                <label for="newPasswordInput" class="col-md-4 col-form-label text-md-end">{{__('New Password')}}</label>
                                 
                                 <div class="col-md-6">
                                     <input name="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                            <div class="row mb-3">
-                                <label for="confirmNewPasswordInput" class="col-md-4 col-form-label text-md-end">Confirm New Password</label>
+                                <label for="confirmNewPasswordInput" class="col-md-4 col-form-label text-md-end">{{__('Confirm New Password')}}</label>
                                 
                                 <div class="col-md-6">
                                     <input name="new_password_confirmation" type="password" class="form-control" id="confirmNewPasswordInput">

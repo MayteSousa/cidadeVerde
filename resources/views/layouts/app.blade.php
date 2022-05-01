@@ -52,11 +52,7 @@
 									</li>
 									
 									<li class="nav-item">
-										<a class="nav-link" href="{{ route('site.ecoponto') }}">Ecoponto</a>
-									</li>
-									
-									<li class="nav-item">
-										<a class="nav-link" href="{{ route('site.contato') }}">Contato</a>
+										<a class="nav-link" href="/contato">Fale Conosco</a>
 									</li>
 								
 									<li class="nav-item dropdown">
@@ -96,8 +92,7 @@
 
 											<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-												<a class="dropdown-item" href="{{ route('home') }}"
->												
+												<a class="dropdown-item" href="{{ route('home') }}" >												
 													{{ __('Dashboard') }}
 												</a>												
 

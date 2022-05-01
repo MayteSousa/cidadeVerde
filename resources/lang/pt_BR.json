@@ -74,6 +74,8 @@
     "Current Password": "Senha Atual",
     "New Password": "Nova Senha",
     "Old Password": "Senha Antiga",
+    "Old Password Doesn't match!": "Senha antiga não corresponde!",
+    "Password changed successfully!": "Senha alterada com sucesso!",
     "Confirm New Password": "Confirmar Nova Senha",
     "Log Out Other Browser Sessions": "Sair de outras sessões do navegador",
     "Log Out": "Deslogar",
