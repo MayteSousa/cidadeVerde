@@ -7,7 +7,7 @@
 
     <div class="card">
         <div class="card-header">
-            <p class="card-title">Usuários Cadastrados</p>
+            <p class="card-title">Usuários Ecopontos Cadastrados</p>
         </div>
         <div class="card-body p-0">
             <table class="table">
@@ -21,10 +21,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    $u = 0;
                     @foreach ($dados as $a)
                         <tr>
-                            $u++;  
                             <td>{{ $a->id }}</td>
                             <td>{{ $a->name }}</td>
                             <td>{{ $a->email }}</td>
@@ -38,7 +36,8 @@
                     @endforeach
                 </tbody>
             </table>
-            {!! $dados->links() !!}
+      <!--  {//!! $dados->links() !!}-->
+
         </div>
     </div>
 

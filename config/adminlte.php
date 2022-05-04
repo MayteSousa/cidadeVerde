@@ -263,12 +263,12 @@ return [
         [
             'text'       => 'Ecopontos',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'url'        => 'ecoponto',
         ],
         [
             'text'       => 'Administradores',
             'icon_color' => 'cyan',
-            'url'        => '#',
+            'url'        => 'admin',
         ],
     ],
 

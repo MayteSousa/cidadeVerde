@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\ContactController;
+use \App\Http\Controllers\AdminController;
+use \App\Http\Controllers\EcopontoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +43,7 @@ Route::get('change-password', [UserController::class, 'changePassword'])->name('
 Route::post('change-password', [UserController::class, 'updatePassword'])->name('update-password')->middleware(['auth']);
 
 Route::resource('contato', ContactController::class);
+
+Route::resource('admin', AdminController::class);
+
+Route::resource('ecoponto',EcopontoController::class);

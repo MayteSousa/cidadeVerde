@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -62,25 +63,33 @@ class UserController extends Controller
 
     public function updatePassword(Request $request)
     {
-            # Validation
+        # Validation
             $request->validate([
                 'old_password' => 'required',
                 'new_password' => 'required|confirmed',
             ]);
     
     
-            #Match The Old Password
+        #Match The Old Password
             if(!Hash::check($request->old_password, auth()->user()->password)){
                 return back()->with("error", "Old Password Doesn't match!");
             }
     
     
-            #Update the new Password
+        #Update the new Password
             User::whereId(auth()->user()->id)->update([
                 'password' => Hash::make($request->new_password)
             ]);
     
-            return back()->with("status", "Password changed successfully!");
+            return back()->with("status", "{{__('Password changed successfully!')}}");
+    }
+
+    public function contarUsuarios() {
+        #$users = DB::table('users')->count()->where('administrador', 1);
+        $users_count = User::where('administrador', 1)
+            ->count();
+            return view('ecoponto', $users_count);
+        
     }
 
 }

@@ -10,7 +10,7 @@
 
 @section('content')
     <p>{{ Auth::user()->name }}, {{ __('Welcome') }} ao Cidade Verde</p>
-    <h3 style="color:Tomato">Apenas o CRUD usuário está funcionando</h3>
+    
     <div class="row">
 
 
@@ -18,7 +18,7 @@
 
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>53<sup style="font-size: 20px"></sup></h3>
+                    <h3> '$u' <sup style="font-size: 20px"></sup></h3>
                     <p>Usuários</p>
                 </div>
                 <div class="icon">
@@ -38,7 +38,7 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('ecoponto.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
