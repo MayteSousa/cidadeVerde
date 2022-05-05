@@ -21,10 +21,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    $u = 0;
+                    
                     @foreach ($dados as $a)
                         <tr>
-                            $u++;  
+                             
                             <td>{{ $a->id }}</td>
                             <td>{{ $a->name }}</td>
                             <td>{{ $a->email }}</td>
@@ -39,6 +39,7 @@
                 </tbody>
             </table>
             {!! $dados->links() !!}
+             $eco;
         </div>
     </div>
 
