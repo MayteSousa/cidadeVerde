@@ -18,13 +18,13 @@
 
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3> 130 <sup style="font-size: 20px"></sup></h3>
+                    <h3> {{$qtd_user}} <sup style="font-size: 20px"></sup></h3>
                     <p>Usuários</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="{{ route('usuario.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('onlyuser.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
@@ -32,7 +32,7 @@
 
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>{{$qtd_ecoponto}}</h3>
                     <p>Ecopontos</p>
                 </div>
                 <div class="icon">
@@ -46,7 +46,7 @@
 
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>50</h3>
+                    <h3>{{$qtd_admin}}</h3>
                     <p>Administradores</p>
                 </div>
                 <div class="icon">
@@ -60,13 +60,13 @@
 
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>65</h3>
-                    <p>Apenas Visitantes</p>
+                    <h3>{{$qtd_total}}</h3>
+                    <p>Total de Cadastros</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('usuario.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 

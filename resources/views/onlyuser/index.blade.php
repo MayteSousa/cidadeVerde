@@ -7,23 +7,26 @@
 
     <div class="card">
         <div class="card-header">
-            <p class="card-title">Usuários Ecopontos Cadastrados</p>
+            <p class="card-title">Usuários Cadastrados</p>
         </div>
         <div class="card-body p-0">
             <br>
-            <form action="{{ route('ecoponto.index') }}" method="GET" >
-                
+            <form action="{{ route('onlyuser.index') }}" method="GET" >
+            @csrf
                 <div class="row">
                     <div class="col">
                       <input type="text" class="form-control" id="search" name="search" placeholder="Pesquisar" aria-label="First name">
                     </div>
                     <div class="col">
                         <button>Pesquisar</button>
-                        <a href="ecoponto" class="btn btn-primary btn-sm">Exibir Todos</a>
+                        <a href="/onlyuser" class="btn btn-primary btn-sm">Exibir Todos</a>
                         <a href="/home" class="btn btn-primary btn-sm">Voltar</a>
                     </div>
                     
                 </div>
+            
+                
+                
             <table class="table">
                 <thead>
                     <tr>
@@ -35,13 +38,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     @foreach ($dados as $a)
                         <tr>
+                             
                             <td>{{ $a->id }}</td>
                             <td>{{ $a->name }}</td>
-                            <td>{{ $a->email }}</td>
+                            <td>{{ $a->email }}</td>                                                       
                             <td><input class="form-check-input" @if($a->administrador==1) {!! 'checked="checked" ' !!} @endif type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled></td>
                             <td><input class="form-check-input" @if($a->ecoponto==1) {!! 'checked="checked" ' !!} @endif type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled></td>
+                                
                             <td>
                                 <a href="/usuario/{{ $a->id }}/edit" class="btn btn-primary btn-sm">Editar</a>
                                 <a href="/usuario/{{ $a->id }}" class="btn btn-primary btn-sm">Excluir</a>
@@ -50,9 +56,8 @@
                     @endforeach
                 </tbody>
             </table>
-            </form>
-      <!--  {//!! $dados->links() !!}-->
-
+        </form>
+        <!--  {//!! $dados->links() !!}-->
         </div>
     </div>
 

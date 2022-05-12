@@ -5,6 +5,8 @@ use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\ContactController;
 use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\EcopontoController;
+use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\OnlyUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +49,7 @@ Route::resource('contato', ContactController::class);
 Route::resource('admin', AdminController::class);
 
 Route::resource('ecoponto',EcopontoController::class);
+
+Route::get('home', [HomeController::class, 'contarUsuarios'])->name('home')->middleware(['auth']);
+
+Route::resource('onlyuser',OnlyUserController::class);

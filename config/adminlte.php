@@ -258,7 +258,7 @@ return [
         [
             'text'       => 'Usuários',
             'icon_color' => 'green',
-            'url'        => 'usuario',
+            'url'        => 'onlyuser',
         ],
         [
             'text'       => 'Ecopontos',
@@ -269,6 +269,11 @@ return [
             'text'       => 'Administradores',
             'icon_color' => 'cyan',
             'url'        => 'admin',
+        ],
+        [
+            'text'       => 'Total de Cadastros',
+            'icon_color' => 'red',
+            'url'        => 'usuario',
         ],
     ],
 

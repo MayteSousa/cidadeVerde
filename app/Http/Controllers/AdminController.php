@@ -13,12 +13,27 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = User::where('administrador', 1)
-            ->orderBy('id')
-            ->get();          
-        return view('admin.index')->with('dados',$usuarios);
+        $search = request('search');
+
+        if($search) {
+
+            $dados = User::where([
+                ['name', 'like', '%'.$search.'%'],
+                ['administrador', 1]
+            ])->orWhere([
+                ['email', 'like', '%'.$search.'%'],
+                ['administrador', 1]
+            ])->get();
+
+        } else {
+            $dados = User::where([
+                ['administrador', 1]
+            ])->get();
+        }        
+    
+        return view('admin.index',['dados' => $dados, 'search' => $search]);
     }
 
     /**

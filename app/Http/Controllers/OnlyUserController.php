@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Models\User;
+use App\Models\User;
 
-class EcopontoController extends Controller
+class OnlyUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $search = request('search');
 
@@ -20,19 +20,22 @@ class EcopontoController extends Controller
 
             $dados = User::where([
                 ['name', 'like', '%'.$search.'%'],
-                ['ecoponto', 1]
+                ['ecoponto', 0],
+                ['administrador', 0]
             ])->orWhere([
                 ['email', 'like', '%'.$search.'%'],
-                ['ecoponto', 1]
+                ['ecoponto', 0],
+                ['administrador', 0]
             ])->get();
 
         } else {
             $dados = User::where([
-                ['ecoponto', 1]
+                ['ecoponto', 0],
+                ['administrador', 0]
             ])->get();
         }        
     
-        return view('ecoponto.index',['dados' => $dados, 'search' => $search]);
+        return view('onlyuser.index',['dados' => $dados, 'search' => $search]);
     }
 
     /**

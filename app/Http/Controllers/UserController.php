@@ -6,14 +6,24 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = User::paginate(10); 
+       // $usuarios = User::paginate(10);
+       
+       
+       $search = $request->search;
+       $usuarios = User::where(function ($query) use ($search) {
+           if($search){
+               $query->where('email','LIKE', "%$search%")
+               ->orwhere('name','LIKE', "%{$search}%");
+           }
+       })->orderBy('id')->get();
+
         return view('usuario.index')->with('dados',$usuarios);
     }
 
@@ -56,10 +66,12 @@ class UserController extends Controller
         return redirect('usuario');
     }
 
+
     public function changePassword()
     {
         return view('auth.passwords.change');
     }
+
 
     public function updatePassword(Request $request)
     {
@@ -84,12 +96,5 @@ class UserController extends Controller
             return back()->with("status", "{{__('Password changed successfully!')}}");
     }
 
-    public function contarUsuarios() {
-        #$users = DB::table('users')->count()->where('administrador', 1);
-        $users_count = User::where('administrador', 1)
-            ->count();
-            return view('ecoponto', $users_count);
-        
-    }
 
 }
