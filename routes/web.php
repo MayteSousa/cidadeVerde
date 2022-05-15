@@ -7,7 +7,7 @@ use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\EcopontoController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\OnlyUserController;
-
+use \App\Http\Controllers\PontoColetaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,3 +54,4 @@ Route::get('home', [HomeController::class, 'contarUsuarios'])->name('home')->mid
 
 Route::resource('onlyuser',OnlyUserController::class);
 
+Route::resource('ponto_coleta', PontoColetaController::class);

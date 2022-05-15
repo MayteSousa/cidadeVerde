@@ -54,6 +54,10 @@
 									<li class="nav-item">
 										<a class="nav-link" href="/contato">Fale Conosco</a>
 									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" href="/ponto_coleta">Pontos de Coleta</a>
+									</li>
 								<!--
 									<li class="nav-item dropdown">
 										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
