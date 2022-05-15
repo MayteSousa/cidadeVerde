@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Editar Usuários')
+@section('title', 'Editar Usuário')
     
 @section('content')
     <div class="container">
@@ -14,7 +14,7 @@
                         <label for="name">Nome</label>
                         <input type="text" name="name" id="name" class="form-control" value="{{(empty(old('name')))?$dados->name:old('name')}}"/>
                         @if($errors->has('name'))
-                        <p class="text-danger">{{$errors->first('name')}}</p>
+                            <p class="text-danger">{{$errors->first('name')}}</p>
                         @endif
                     </div>
                     <div>

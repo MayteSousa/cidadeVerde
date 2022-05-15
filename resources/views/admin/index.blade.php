@@ -23,6 +23,7 @@
                     </div>
                     
                 </div>
+            </form>
             <table class="table">
                 <thead>
                     <tr>
@@ -49,7 +50,7 @@
                     @endforeach
                 </tbody>
             </table>
-            </form>
+            
       <!--  {//!! $dados->links() !!}-->
         </div>
     </div>

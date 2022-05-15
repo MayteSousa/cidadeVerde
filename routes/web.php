@@ -53,3 +53,4 @@ Route::resource('ecoponto',EcopontoController::class);
 Route::get('home', [HomeController::class, 'contarUsuarios'])->name('home')->middleware(['auth']);
 
 Route::resource('onlyuser',OnlyUserController::class);
+

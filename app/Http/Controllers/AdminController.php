@@ -25,80 +25,55 @@ class AdminController extends Controller
             ])->orWhere([
                 ['email', 'like', '%'.$search.'%'],
                 ['administrador', 1]
-            ])->get();
+            ])->orderBy('id')->get();
 
         } else {
             $dados = User::where([
                 ['administrador', 1]
-            ])->get();
+            ])->orderBy('id')->get();
         }        
     
         return view('admin.index',['dados' => $dados, 'search' => $search]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        User::create($request->all());
+        return redirect("admin");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show(User $usuario)
     {
-        //
+        return view('usuario.show')->with('dados',$usuario);  
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit(User $usuario)
     {
-        //
+        return view('usuario.edit')->with('dados',$usuario); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    
+    public function update(Request $request, User $usuario)
     {
-        //
+        $usuario->update( $request->all());        
+        return redirect('admin');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(User $usuario)
     {
-        //
+        $usuario->delete();
+        return redirect('{{admin}}');
     }
+
+
 }

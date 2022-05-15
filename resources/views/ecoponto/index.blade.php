@@ -3,7 +3,7 @@
 @section('title', ' - Usuários Cadastrados')
 
 @section('content')
-    <a href="/usuario/create" class="btn btn-primary btn-sm">Novo</a>
+    <a href="/ecoponto/create" class="btn btn-primary btn-sm">Novo</a>
 
     <div class="card">
         <div class="card-header">
@@ -21,9 +21,9 @@
                         <button>Pesquisar</button>
                         <a href="ecoponto" class="btn btn-primary btn-sm">Exibir Todos</a>
                         <a href="/home" class="btn btn-primary btn-sm">Voltar</a>
-                    </div>
-                    
+                    </div> 
                 </div>
+            </form>
             <table class="table">
                 <thead>
                     <tr>
@@ -50,7 +50,7 @@
                     @endforeach
                 </tbody>
             </table>
-            </form>
+         
       <!--  {//!! $dados->links() !!}-->
 
         </div>

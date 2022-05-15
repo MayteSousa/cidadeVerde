@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use \App\Models\User;
 
 class OnlyUserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    
+    public function index(Request $request)
     {
         $search = request('search');
 
@@ -26,81 +23,55 @@ class OnlyUserController extends Controller
                 ['email', 'like', '%'.$search.'%'],
                 ['ecoponto', 0],
                 ['administrador', 0]
-            ])->get();
+            ])->orderBy('id')->get();
 
         } else {
             $dados = User::where([
                 ['ecoponto', 0],
                 ['administrador', 0]
-            ])->get();
+            ])->orderBy('id')->get();
         }        
     
         return view('onlyuser.index',['dados' => $dados, 'search' => $search]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('onlyuser.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        User::create($request->all());
+        return redirect('onlyuser');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show(User $usuario)
     {
-        //
+        return view('usuario.show')->with('dados',$usuario);  
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit(User $usuario)
     {
-        //
+        return view('usuario.edit')->with('dados',$usuario); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    
+    public function update(Request $request, User $usuario)
     {
-        //
+        $usuario->update( $request->all());        
+        return redirect('onlyuser');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(User $usuario)
     {
-        //
+        $usuario->delete();
+        return redirect('onlyuser');
     }
+
 }

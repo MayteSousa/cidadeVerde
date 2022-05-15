@@ -12,7 +12,7 @@
         <div class="card-body p-0">
             <br>
             <form action="{{ route('onlyuser.index') }}" method="GET" >
-            @csrf
+            
                 <div class="row">
                     <div class="col">
                       <input type="text" class="form-control" id="search" name="search" placeholder="Pesquisar" aria-label="First name">
@@ -24,7 +24,7 @@
                     </div>
                     
                 </div>
-            
+            </form>
                 
                 
             <table class="table">
@@ -56,7 +56,7 @@
                     @endforeach
                 </tbody>
             </table>
-        </form>
+        
         <!--  {//!! $dados->links() !!}-->
         </div>
     </div>
