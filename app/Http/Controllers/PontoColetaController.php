@@ -13,7 +13,7 @@ class PontoColetaController extends Controller
      */
     public function index()
     {
-        return view('ponto_coleta.index');
+        return view('ecoponto.index');
     }
 
     /**

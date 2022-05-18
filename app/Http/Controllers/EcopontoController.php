@@ -2,73 +2,101 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ecoponto;
 use Illuminate\Http\Request;
-use \App\Models\User;
 
 class EcopontoController extends Controller
 {
-
-    public function index(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $search = request('search');
-
-        if($search) {
-
-            $dados = User::where([
-                ['name', 'like', '%'.$search.'%'],
-                ['ecoponto', 1]
-            ])->orWhere([
-                ['email', 'like', '%'.$search.'%'],
-                ['ecoponto', 1]
-            ])->orderBy('id')->get();
-
-        } else {
-            $dados = User::where([
-                ['ecoponto', 1]
-            ])->orderBy('id')->get();
-        }        
-    
-        return view('ecoponto.index',['dados' => $dados, 'search' => $search]);
+        # $ecopontos = Ecoponto::paginate(10);
+        $ecopontos = Ecoponto::get();
+         #dd($ecopontos);
+         return view('ecoponto.index',['local' => $ecopontos]);
     }
 
 
+    /*public function gmaps()
+    {
+    	$locations = DB::table('ecopontos')->get();
+    	return view('gmaps')->with('local');
+    }
+
+        public function index()
+    {
+        $locations = Locations::get();
+        return view('gmaps')->with('local',$locations);
+    }*/
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('ecoponto.create');
+        //
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        User::create($request->all());
-        return redirect("ecoponto");
+        return 'teste';
     }
 
-
-    public function show(User $usuario)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Ecoponto  $ecoponto
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Ecoponto $ecoponto)
     {
-        return view('usuario.show')->with('dados',$usuario);  
+        //
     }
 
-
-    public function edit(User $usuario)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Ecoponto  $ecoponto
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Ecoponto $ecoponto)
     {
-        return view('usuario.edit')->with('dados',$usuario); 
+        //
     }
 
-    
-    public function update(Request $request, User $usuario)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Ecoponto  $ecoponto
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Ecoponto $ecoponto)
     {
-        $usuario->update( $request->all());        
-        return redirect('ecoponto');
+        //
     }
 
-
-    public function destroy(User $usuario)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Ecoponto  $ecoponto
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Ecoponto $ecoponto)
     {
-        $usuario->delete();
-        return redirect('ecoponto');
+        //
     }
-
-
 }

@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\ContactController;
 use \App\Http\Controllers\AdminController;
-use \App\Http\Controllers\EcopontoController;
+use \App\Http\Controllers\UserEcopontoController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\OnlyUserController;
 use \App\Http\Controllers\PontoColetaController;
+use \App\Http\Controllers\EcopontoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +29,9 @@ Route::get('/welcome', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('gmaps', [HomeController::class, 'gmaps']);
 
 //PRECISA AUTENTICAR NO SISTEMA E SER ADMIN
 //Route::resource('usuario', UserController::class)->middleware(['auth','admin']);
@@ -48,10 +51,13 @@ Route::resource('contato', ContactController::class);
 
 Route::resource('admin', AdminController::class);
 
-Route::resource('ecoponto',EcopontoController::class);
+Route::resource('user_ecoponto',UserEcopontoController::class);
 
 Route::get('home', [HomeController::class, 'contarUsuarios'])->name('home')->middleware(['auth']);
 
 Route::resource('onlyuser',OnlyUserController::class);
 
 Route::resource('ponto_coleta', PontoColetaController::class);
+
+Route::resource('ecoponto', EcopontoController::class);
+#Route::get('/ecoponto', [HomeController::class, 'index']);
