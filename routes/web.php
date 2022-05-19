@@ -9,6 +9,7 @@ use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\OnlyUserController;
 use \App\Http\Controllers\PontoColetaController;
 use \App\Http\Controllers\EcopontoController;
+use \App\Http\Controllers\ShopsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,15 +50,16 @@ Route::post('change-password', [UserController::class, 'updatePassword'])->name(
 
 Route::resource('contato', ContactController::class);
 
-Route::resource('admin', AdminController::class);
+Route::resource('admin', AdminController::class)->middleware(['auth']);
 
-Route::resource('user_ecoponto',UserEcopontoController::class);
+Route::resource('user_ecoponto',UserEcopontoController::class)->middleware(['auth']);
 
 Route::get('home', [HomeController::class, 'contarUsuarios'])->name('home')->middleware(['auth']);
 
-Route::resource('onlyuser',OnlyUserController::class);
+Route::resource('onlyuser',OnlyUserController::class)->middleware(['auth']);
 
-Route::resource('ponto_coleta', PontoColetaController::class);
+Route::resource('ponto_coleta', PontoColetaController::class);#->middleware(['auth']);
 
-Route::resource('ecoponto', EcopontoController::class);
+Route::resource('ecoponto', EcopontoController::class)->middleware(['auth']);
 #Route::get('/ecoponto', [HomeController::class, 'index']);
+

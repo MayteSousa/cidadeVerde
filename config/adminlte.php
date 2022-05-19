@@ -254,7 +254,7 @@ return [
             'url'  => 'change-password',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        ['header' => 'Clientes'],
+        ['header' => 'Tipos Clientes'],
         [
             'text'       => 'Usuários',
             'icon_color' => 'green',
@@ -274,6 +274,11 @@ return [
             'text'       => 'Total de Cadastros',
             'icon_color' => 'red',
             'url'        => 'usuario',
+        ],
+        [
+            'text'       => 'Mapa Ecopontos',
+            'icon_color' => 'red',
+            'url'        => 'ecoponto',
         ],
     ],
 

@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo')
-    Cadastrar Usuário
-@endsection
+@section('title', 'Cadastrar Usuário')
 
 @section('content')    
         <div class="row">

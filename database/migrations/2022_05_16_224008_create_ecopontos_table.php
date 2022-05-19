@@ -15,15 +15,14 @@ class CreateEcopontosTable extends Migration
     {
         Schema::create('ecopontos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('responsible');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            #$table->boolean('created_by_id')->nullable();#->required();#responsible
             $table->timestamps();
-
-            #$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

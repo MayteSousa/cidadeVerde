@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TipoMaterial;
 use Illuminate\Http\Request;
 
-class PontoColetaController extends Controller
+class TipoMaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class PontoColetaController extends Controller
      */
     public function index()
     {
-        return view('ecoponto.index2');
+        //
     }
 
     /**
@@ -40,10 +41,10 @@ class PontoColetaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\TipoMaterial  $tipoMaterial
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(TipoMaterial $tipoMaterial)
     {
         //
     }
@@ -51,10 +52,10 @@ class PontoColetaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\TipoMaterial  $tipoMaterial
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(TipoMaterial $tipoMaterial)
     {
         //
     }
@@ -63,10 +64,10 @@ class PontoColetaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\TipoMaterial  $tipoMaterial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TipoMaterial $tipoMaterial)
     {
         //
     }
@@ -74,10 +75,10 @@ class PontoColetaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\TipoMaterial  $tipoMaterial
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TipoMaterial $tipoMaterial)
     {
         //
     }

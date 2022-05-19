@@ -14,25 +14,8 @@ class EcopontoController extends Controller
      */
     public function index()
     {
-        # $ecopontos = Ecoponto::paginate(10);
-        $ecopontos = Ecoponto::get();
-         #dd($ecopontos);
-         return view('ecoponto.index',['local' => $ecopontos]);
-    }
-
-
-    /*public function gmaps()
-    {
-    	$locations = DB::table('ecopontos')->get();
-    	return view('gmaps')->with('local');
-    }
-
-        public function index()
-    {
-        $locations = Locations::get();
-        return view('gmaps')->with('local',$locations);
-    }*/
-
+        $ecopontos = Ecoponto::all(); //ecopontosartamento::all();
+        return View('ecoponto.index')->with('ecopontos',$ecopontos);     }
 
     /**
      * Show the form for creating a new resource.
@@ -41,8 +24,7 @@ class EcopontoController extends Controller
      */
     public function create()
     {
-        //
-    }
+        return View('ecoponto.create');    }
 
     /**
      * Store a newly created resource in storage.
@@ -52,7 +34,9 @@ class EcopontoController extends Controller
      */
     public function store(Request $request)
     {
-        return 'teste';
+        Ecoponto::create( $request->all() );
+
+        return redirect("/ecoponto");
     }
 
     /**
@@ -63,8 +47,7 @@ class EcopontoController extends Controller
      */
     public function show(Ecoponto $ecoponto)
     {
-        //
-    }
+        return View('ecoponto.show')->with('ecoponto',$ecoponto);    }
 
     /**
      * Show the form for editing the specified resource.
@@ -74,7 +57,7 @@ class EcopontoController extends Controller
      */
     public function edit(Ecoponto $ecoponto)
     {
-        //
+        return View('ecoponto.edit')->with('ecoponto',$ecoponto);
     }
 
     /**
@@ -86,8 +69,9 @@ class EcopontoController extends Controller
      */
     public function update(Request $request, Ecoponto $ecoponto)
     {
-        //
-    }
+        $ecoponto->update(  $request->all()  );
+
+        return redirect('/ecoponto');    }
 
     /**
      * Remove the specified resource from storage.
@@ -97,6 +81,8 @@ class EcopontoController extends Controller
      */
     public function destroy(Ecoponto $ecoponto)
     {
-        //
+        $ecoponto->delete();
+
+        return redirect('/ecoponto');
     }
 }

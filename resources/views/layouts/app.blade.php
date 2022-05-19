@@ -146,6 +146,7 @@
 			<script src="{{ asset('js/util.js') }}"></script>
 			<script src="{{ asset('js/main.js') }}"></script>
 			<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+			@yield('scripts')
 		
 	</body>
 </html>
