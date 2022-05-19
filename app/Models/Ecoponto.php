@@ -23,11 +23,11 @@ class Ecoponto extends Model
 
 
 
-    public function created_by()
+  /*  public function created_by()
     {
         return $this->belongsTo(User::class, 'created_by_id');
     }
-
+*/
 
 
     public function scopeSearchResults($query)
