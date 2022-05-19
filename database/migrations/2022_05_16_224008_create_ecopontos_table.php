@@ -21,10 +21,10 @@ class CreateEcopontosTable extends Migration
             $table->string('address')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            #$table->boolean('created_by_id')->nullable();#->required();#responsible
             $table->timestamps();
         });
     }
+    /*#$table->boolean('created_by_id')->nullable();#->required();#responsible */
 
     /**
      * Reverse the migrations.

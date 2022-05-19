@@ -18,10 +18,10 @@ class Ecoponto extends Model
         'address',
         'latitude',
         'longitude',
-        'created_by_id',#responsible
+        
     ];
 
-
+/**'created_by_id',#responsible */
 
   /*  public function created_by()
     {

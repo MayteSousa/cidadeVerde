@@ -9,6 +9,7 @@ class EcopontoFactory extends Factory
 {
     /**
      * Define the model's default state.
+     * 'created_by_id' => null
      *
      * @return array
      */
@@ -21,7 +22,7 @@ class EcopontoFactory extends Factory
             'address' => $this->faker->address(),
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
-            'created_by_id' => null
+            
         ];
     }
 }

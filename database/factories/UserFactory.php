@@ -9,6 +9,7 @@ class UserFactory extends Factory
 {
     /**
      * Define the model's default state.
+     *rodrigo@fatecpg.com.br/12345678
      *
      * @return array
      */
