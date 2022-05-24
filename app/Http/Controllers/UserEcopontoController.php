@@ -28,32 +28,32 @@ class UserEcopontoController extends Controller
             ])->orderBy('id')->get();
         }        
     
-        return view('user_ecoponto.index',['dados' => $dados, 'search' => $search]);
+        return view('admin.user_ecoponto.index',['dados' => $dados, 'search' => $search]);
     }
 
 
     public function create()
     {
-        return view('user_ecoponto.create');
+        return view('admin.user_ecoponto.create');
     }
 
 
     public function store(Request $request)
     {
         User::create($request->all());
-        return redirect("user_ecoponto");
+        return redirect("admin.user_ecoponto");
     }
 
 
     public function show(User $usuario)
     {
-        return view('usuario.show')->with('dados',$usuario);  
+        return view('admin.user_usuario.show')->with('dados',$usuario);  
     }
 
 
     public function edit(User $usuario)
     {
-        return view('usuario.edit')->with('dados',$usuario); 
+        return view('admin.user_usuario.edit')->with('dados',$usuario); 
     }
 
     
@@ -67,7 +67,7 @@ class UserEcopontoController extends Controller
     public function destroy(User $usuario)
     {
         $usuario->delete();
-        return redirect('ecoponto');
+        return redirect('admin.user_ecoponto');
     }
 
 

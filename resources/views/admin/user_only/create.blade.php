@@ -1,13 +1,11 @@
-@extends('layouts.app')
-
-@section('title', 'Cadastrar Usuário')
+@extends('layouts.crud')
 
 @section('content')    
         <div class="row">
             <h3>Cadastrar Usuário</h3>
             <div class="col-sm-6">
                 
-                <form action="/usuario" method="post">
+                <form action="/user_only" method="post">
                     @csrf  <!-- token de segurança -->
        
                     
@@ -62,7 +60,7 @@
                             </div>
                     
                     <input type="submit" value="Cadastrar" class="btn btn-primary btn-sm"/>
-                    <a href="/home" class="btn btn-primary btn-sm">Voltar</a>
+                    <a href="/ecoponto" class="btn btn-primary btn-sm">Voltar</a>
                 </form>
             </div>
         </div>

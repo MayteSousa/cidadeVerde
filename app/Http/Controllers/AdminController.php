@@ -33,13 +33,13 @@ class AdminController extends Controller
             ])->orderBy('id')->get();
         }        
     
-        return view('admin.index',['dados' => $dados, 'search' => $search]);
+        return view('admin.user_admin.index',['dados' => $dados, 'search' => $search]);
     }
 
     
     public function create()
     {
-        return view('admin.create');
+        return view('admin.user_admin.create');
     }
 
 
@@ -52,13 +52,13 @@ class AdminController extends Controller
 
     public function show(User $usuario)
     {
-        return view('usuario.show')->with('dados',$usuario);  
+        return view('admin.user_usuario.show')->with('dados',$usuario);  
     }
 
 
     public function edit(User $usuario)
     {
-        return view('usuario.edit')->with('dados',$usuario); 
+        return view('admin.user_usuario.edit')->with('dados',$usuario); 
     }
 
     

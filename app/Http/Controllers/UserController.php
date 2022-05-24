@@ -28,7 +28,7 @@ class UserController extends Controller
     
         #Match The Old Password
             if(!Hash::check($request->old_password, auth()->user()->password)){
-                return back()->with("error", "Old Password Doesn't match!");
+                return back()->with("error", "{{__('Old Password Doesn't match!')}}");
             }
     
     
@@ -37,7 +37,7 @@ class UserController extends Controller
                 'password' => Hash::make($request->new_password)
             ]);
     
-            return back()->with("status", "{{__('Password changed successfully!')}}");
+            return back()->with("status", "{{ __('Password changed successfully!')}}");
     }
 
 
@@ -54,13 +54,13 @@ class UserController extends Controller
            }
        })->orderBy('id')->get();
 
-        return view('usuario.index')->with('dados',$usuarios);
+        return view('admin.user_usuario.index')->with('dados',$usuarios);
     }
 
 
     public function create()
     {
-        return view('usuario.create');
+        return view('admin.user_usuario.create');
     }
 
 
@@ -73,13 +73,13 @@ class UserController extends Controller
 
     public function show(User $usuario)
     {
-        return view('usuario.show')->with('dados',$usuario);  
+        return view('admin.user_usuario.show')->with('dados',$usuario);  
     }
 
 
     public function edit(User $usuario)
     {
-        return view('usuario.edit')->with('dados',$usuario); 
+        return view('admin.user_usuario.edit')->with('dados',$usuario); 
     }
 
     

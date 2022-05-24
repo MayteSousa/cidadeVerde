@@ -18,8 +18,8 @@
 			<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<!-- Tiutulo da Página -->			
-      <title>{{ config('app.name', 'Cidade Verde') }}</title>@yield('title')
-
+			<title>{{ config('app.name', 'Cidade Verde') }}</title>
+			@yield('title')
 		<!-- Styles -->
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
       <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
@@ -59,17 +59,13 @@
 
     <div id="ds-container">
 
-        @include('partials.header') 
-
-       @include('partials.mapa')
-
         
         <main class="py-4">
           @yield('content')
         </main>          
 
 
-          @include('partials.about')
+          @includeWhen(request()->is('/'), 'partials.about')
 
           @include('partials.footer')
 

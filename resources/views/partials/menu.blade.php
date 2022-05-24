@@ -1,79 +1,84 @@
-<div class="sidebar">
-    <nav class="sidebar-nav">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
 
-        <ul class="nav">
-            @can('user_management_access')
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link  nav-dropdown-toggle" href="#">
-                        <i class="fa-fw fas fa-users nav-icon">
+        <a class="navbar-brand" href="{{ route('inicio') }}"><img src="{{ asset('images/logo.png') }}" alt="Logo"></a>
 
-                        </i>
-                        {{ trans('cruds.userManagement.title') }}
-                    </a>
-                    <ul class="nav-dropdown-items">
-                        @can('permission_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
-                                    <i class="fa-fw fas fa-unlock-alt nav-icon">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                                    </i>
-                                    {{ trans('cruds.permission.title') }}
-                                </a>
-                            </li>
-                        @endcan
-                        @can('role_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
-                                    <i class="fa-fw fas fa-briefcase nav-icon">
+    <!-- Menu -->                    				
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                                    </i>
-                                    {{ trans('cruds.role.title') }}
-                                </a>
-                            </li>
-                        @endcan
-                        @can('user_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                                    <i class="fa-fw fas fa-user nav-icon">
-
-                                    </i>
-                                    {{ trans('cruds.user.title') }}
-                                </a>
-                            </li>
-                        @endcan
+                <!-- Lado esquerdo da barra de navegação -->	
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ route('inicio') }}">Home</a> 
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contato">Fale Conosco</a>
+                        </li>
+<!--
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ponto_coleta">Pontos de Coleta</a>
+                        </li>
+                    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reciclagem
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Papel</a></li>
+                                <li><a class="dropdown-item" href="#">Plástico</a></li>
+                                <li><a class="dropdown-item" href="#">Vidro</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Outros</a></li>
+                            </ul>
+                        </li>-->
                     </ul>
-                </li>
-            @endcan
-            @can('category_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.categories.index") }}" class="nav-link {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-tags nav-icon">
 
-                        </i>
-                        {{ trans('cruds.category.title') }}
-                    </a>
-                </li>
-            @endcan
-            @can('shop_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.shops.index") }}" class="nav-link {{ request()->is('admin/shops') || request()->is('admin/shops/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-shopping-basket nav-icon">
+                <!-- Lado Direiro da barra de navegação -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
 
-                        </i>
-                        {{ trans('cruds.shop.title') }}
-                    </a>
-                </li>
-            @endcan
-            <li class="nav-item">
-                <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                    <i class="nav-icon fas fa-fw fa-sign-out-alt">
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
 
-                    </i>
-                    {{ trans('global.logout') }}
-                </a>
-            </li>
-        </ul>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-    </nav>
-    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
-</div>
+                                    <a class="dropdown-item" href="{{ route('home') }}" >												
+                                        {{ __('Dashboard') }}
+                                    </a>												
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+    
+            </div>
+    </div>
+</nav>	

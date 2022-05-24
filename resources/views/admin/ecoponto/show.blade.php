@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.crud')
+
 @section('content')
 
     <h3>Excluir Ecoponto</h3>

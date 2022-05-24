@@ -187,7 +187,7 @@ return [
     |
     */
 
-    'use_route_url' => false,
+    'use_route_url' => true,
     'dashboard_url' => 'inicio',
     'logout_url' => 'logout',
     'login_url' => 'login',
@@ -254,33 +254,49 @@ return [
             'url'  => 'change-password',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        ['header' => 'Tipos Clientes'],
         [
-            'text'       => 'Usuários',
-            'icon_color' => 'green',
-            'url'        => 'onlyuser',
+            'text'      => 'Tipos de Clientes',
+            'icon'      => 'share',
+            'submenu'   => [
+                [
+                    'text'       => 'Usuários',
+                    'icon_color' => 'green',
+                    'url'        => 'user_only',
+                ],
+                [
+                    'text'       => 'Ecopontos',
+                    'icon_color' => 'yellow',
+                    'url'        => 'user_ecoponto',
+                ],
+                [
+                    'text'       => 'Administradores',
+                    'icon_color' => 'cyan',
+                    'url'        => 'admin',
+                ],
+                [
+                    'text'       => 'Total de Cadastros',
+                    'icon_color' => 'red',
+                    'url'        => 'usuario',
+                ],
+            ]
         ],
         [
-            'text'       => 'Ecopontos',
-            'icon_color' => 'yellow',
-            'url'        => 'user_ecoponto',
-        ],
-        [
-            'text'       => 'Administradores',
-            'icon_color' => 'cyan',
-            'url'        => 'admin',
-        ],
-        [
-            'text'       => 'Total de Cadastros',
-            'icon_color' => 'red',
-            'url'        => 'usuario',
-        ],
-        [
-            'text'       => 'Mapa Ecopontos',
-            'icon_color' => 'red',
-            'url'        => 'ecoponto',
-        ],
+        'text'      => 'Ecopontos',
+        'icon'      => 'share',
+        'submenu'   => [
+            [
+                'text'       => 'Mapa',
+                'icon_color' => 'purple',
+                'url'        => 'mapa_ecopontos',
+            ],
+            [
+                'text'       => 'Endereços',
+                'icon_color' => 'purple',
+                'url'        => 'ecoponto',
+            ],
+       ] 
     ],
+],
 
     /*
     |--------------------------------------------------------------------------

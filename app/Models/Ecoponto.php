@@ -16,9 +16,8 @@ class Ecoponto extends Model
         'phone',
         'email',
         'address',
-        'latitude',
-        'longitude',
-        
+        'lat',
+        'lng',
     ];
 
 /**'created_by_id',#responsible */

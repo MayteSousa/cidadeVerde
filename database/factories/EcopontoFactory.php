@@ -20,8 +20,8 @@ class EcopontoFactory extends Factory
             'phone' => $this->faker->phone(),
             'email' => $this->faker->email(),
             'address' => $this->faker->address(),
-            'latitude' => $this->faker->latitude(),
-            'longitude' => $this->faker->longitude(),
+            'lat' => $this->faker->latitude(),
+            'lng' => $this->faker->longitude(),
             
         ];
     }

@@ -32,46 +32,46 @@ class OnlyUserController extends Controller
             ])->orderBy('id')->get();
         }        
     
-        return view('onlyuser.index',['dados' => $dados, 'search' => $search]);
+        return view('admin.user_only.index',['dados' => $dados, 'search' => $search]);
     }
 
 
     public function create()
     {
-        return view('onlyuser.create');
+        return view('admin.user_only.create');
     }
 
 
     public function store(Request $request)
     {
         User::create($request->all());
-        return redirect('onlyuser');
+        return redirect('user_only');
     }
 
 
     public function show(User $usuario)
     {
-        return view('usuario.show')->with('dados',$usuario);  
+        return view('admin.user_usuario.show')->with('dados',$usuario);  
     }
 
 
     public function edit(User $usuario)
     {
-        return view('usuario.edit')->with('dados',$usuario); 
+        return view('admin.user_usuario.edit')->with('dados',$usuario); 
     }
 
     
     public function update(Request $request, User $usuario)
     {
         $usuario->update( $request->all());        
-        return redirect('onlyuser');
+        return redirect('user_only');
     }
 
 
     public function destroy(User $usuario)
     {
         $usuario->delete();
-        return redirect('onlyuser');
+        return redirect('user_only');
     }
 
 }

@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('titulo')
-    Excluir Usuário
-@endsection
+@extends('layouts.crud')
 
 @section('content')
     <h3>Excluir Usuário</h3>

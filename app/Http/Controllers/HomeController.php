@@ -30,15 +30,15 @@ class HomeController extends Controller
 
     public function contarUsuarios() {
         
-        $only_users = User::where('administrador',0 AND 'ecoponto',0)->count();
+        $only_users = User::where('administrador',FALSE AND 'ecoponto',FALSE)->count();
 
-        $only_admin = User::where('administrador','=',1)->count();
+        $only_admin = User::where('administrador','=',TRUE)->count();
 
-        $only_ecoponto = User::where('ecoponto','=',1)->count();
+        $only_ecoponto = User::where('ecoponto','=',TRUE)->count();
 
         $users_total=DB::table('users')->count();
 
-
+        
         return view('home')->with(
             [
                 'qtd_user' => $only_users,
@@ -48,7 +48,5 @@ class HomeController extends Controller
             ]
         );
     }
-
-
 
 }

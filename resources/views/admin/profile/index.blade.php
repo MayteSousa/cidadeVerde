@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Perfil do Usuário')
+@extends('layouts.crud')
 
 @section('content')   
 <div class="container">

@@ -2,20 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ecoponto;
+use \App\Models\Ecoponto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class EcopontoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function gmaps()
+    {
+    	$locations = DB::table('ecopontos')->get();
+        return view('gmaps',compact('locations'));        
+    }
+
+    public function gmaps2()
+    {
+    	$locations = DB::table('ecopontos')->get();
+        return view('admin.ecoponto.mapa',compact('locations'));        
+    }    
+
     public function index()
     {
-        $ecopontos = Ecoponto::all(); //ecopontosartamento::all();
-        return View('ecoponto.index')->with('ecopontos',$ecopontos);     }
+        $ecopontos = Ecoponto::all(); 
+        return View('admin.ecoponto.index')->with('ecopontos',$ecopontos);     
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +35,7 @@ class EcopontoController extends Controller
      */
     public function create()
     {
-        return View('ecoponto.create');    }
+        return View('admin.ecoponto.create');    }
 
     /**
      * Store a newly created resource in storage.
@@ -47,7 +58,7 @@ class EcopontoController extends Controller
      */
     public function show(Ecoponto $ecoponto)
     {
-        return View('ecoponto.show')->with('ecoponto',$ecoponto);    }
+        return View('admin.ecoponto.show')->with('ecoponto',$ecoponto);    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +68,7 @@ class EcopontoController extends Controller
      */
     public function edit(Ecoponto $ecoponto)
     {
-        return View('ecoponto.edit')->with('ecoponto',$ecoponto);
+        return View('admin.ecoponto.edit')->with('ecoponto',$ecoponto);
     }
 
     /**

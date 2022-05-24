@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.crud')
 
-@section('title','Cadastrar Usuário Ecoponto')
+@section('title',' - Cadastrar Usuário Ecoponto')
 
 @section('content')    
         <div class="row">
