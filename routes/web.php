@@ -98,9 +98,9 @@ Route::resource('ecoponto', EcopontoController::class);
 #Route::get('/ecoponto', [HomeController::class, 'index']);
 
 
-Route::get('/welcome', function () {
-    return view('partials.mapa');
-})->name('welcome');
+Route::get('/teste', function () {
+    return view('admin.partials_crud.teste');
+})->name('teste');
 
 
 /*Route::get('/teste', function () {

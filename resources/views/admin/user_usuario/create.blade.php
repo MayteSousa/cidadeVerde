@@ -75,7 +75,24 @@
                                             name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>
+<!--
+                                <div class="row mb-0">
+                                    <div class="col-md-8 offset-md-4">
+                                        <div class="row mb-3">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-control" type="checkbox" id="administrador"  value="administrador" name="checkuser[]">
+                                                    
+                                                <label class="form-check-label" for="administrador">Administrador</label>
+                                            </div>
 
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-control" type="checkbox" id="ecoponto" value="ecoponto" name="checkuser[]">
+                                                <label class="form-check-label" for="ecoponto">Ecoponto</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+-->
                                 <div class="row mb-0">
                                     <div class="col-md-8 offset-md-4">
                                         <input type="submit" value="Cadastrar" class="btn btn-primary btn-sm" />
@@ -83,7 +100,6 @@
                                     </div>
                                 </div>
 
-                                
                             </form>
                         </div>
                     </div>

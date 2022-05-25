@@ -1,7 +1,7 @@
 @extends('layouts.crud')
 
 @section('content')
-    <a href="/usuario/create" class="btn btn-primary btn-sm">Novo</a>
+    <a href="/user_only/create" class="btn btn-primary btn-sm">Novo</a>
 
     <div class="card">
         <div class="card-header">

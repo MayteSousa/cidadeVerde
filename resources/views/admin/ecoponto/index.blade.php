@@ -19,6 +19,7 @@
                     <div class="col">
                         <button>Pesquisar</button>
                         <a href="/ecoponto" class="btn btn-primary btn-sm">Exibir Todos</a>
+                        <a href="/mapa_ecopontos" class="btn btn-primary btn-sm">Mapa</a>
                         <a href="/home" class="btn btn-primary btn-sm">Voltar</a>
                     </div>
                     

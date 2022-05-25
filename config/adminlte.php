@@ -282,21 +282,11 @@ return [
         ],
         [
         'text'      => 'Ecopontos',
-        'icon'      => 'share',
-        'submenu'   => [
-            [
-                'text'       => 'Mapa',
-                'icon_color' => 'purple',
-                'url'        => 'mapa_ecopontos',
-            ],
-            [
-                'text'       => 'Endereços',
-                'icon_color' => 'purple',
-                'url'        => 'ecoponto',
-            ],
-       ] 
+        'icon_color'=> 'share',
+        'url'       => 'ecoponto'
+        ],
     ],
-],
+
 
     /*
     |--------------------------------------------------------------------------

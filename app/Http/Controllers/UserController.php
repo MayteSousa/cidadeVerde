@@ -28,7 +28,7 @@ class UserController extends Controller
     
         #Match The Old Password
             if(!Hash::check($request->old_password, auth()->user()->password)){
-                return back()->with("error", "{{__('Old Password Doesn't match!')}}");
+                return back()->with("error", "{{__('Senha antiga não confere!')}}");
             }
     
     
@@ -37,7 +37,7 @@ class UserController extends Controller
                 'password' => Hash::make($request->new_password)
             ]);
     
-            return back()->with("status", "{{ __('Password changed successfully!')}}");
+            return back()->with("status", "{{ __('Senha alterada com sucesso!')}}");
     }
 
 

@@ -1,7 +1,5 @@
 @extends('layouts.crud')
 
-@section('title', ' - Editar Senha Usuário')
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

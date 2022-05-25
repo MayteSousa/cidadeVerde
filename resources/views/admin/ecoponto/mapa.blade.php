@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="/home" class="btn btn-primary btn-sm">Voltar</a>
+<a href="/ecoponto" class="btn btn-primary btn-sm">Voltar</a>
 
   <div id="mymap"></div>
 
@@ -25,9 +25,9 @@
 	    mymap.addMarker({
 	      lat: value.lat,
 	      lng: value.lng,
-	      title: value.city,
+	      title: value.name,
 	      click: function(e) {
-	        alert('This is '+value.city+', gujarat from India.');
+	        alert(value.address);
 	      }
 	    });
    });

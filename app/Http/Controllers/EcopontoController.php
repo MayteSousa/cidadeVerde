@@ -22,9 +22,21 @@ class EcopontoController extends Controller
         return view('admin.ecoponto.mapa',compact('locations'));        
     }    
 
-    public function index()
+    public function index(Request $request)
     {
-        $ecopontos = Ecoponto::all(); 
+        #$ecopontos = Ecoponto::all(); 
+
+        $search = $request->search;
+        $ecopontos = Ecoponto::where(function ($query) use ($search) {
+            if($search){
+                $query->where('email','LIKE', "%$search%")
+                ->orwhere('name','LIKE', "%{$search}%")
+                ->orwhere('phone','LIKE', "%{$search}%")
+                ->orwhere('email','LIKE', "%{$search}%")
+                ->orwhere('address','LIKE', "%{$search}%");
+            }
+        })->orderBy('id')->get();
+
         return View('admin.ecoponto.index')->with('ecopontos',$ecopontos);     
     }
 
