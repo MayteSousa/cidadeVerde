@@ -285,6 +285,11 @@ return [
         'icon_color'=> 'share',
         'url'       => 'ecoponto'
         ],
+        [
+            'text'      => 'Materiais',
+            'icon_color'=> 'share',
+            'url'       => 'material'
+            ],
     ],
 
 

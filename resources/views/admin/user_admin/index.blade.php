@@ -1,7 +1,5 @@
 @extends('layouts.crud')
 
-@section('title', ' - Usuários Cadastrados')
-
 @section('content')
     <a href="/usuario/create" class="btn btn-primary btn-sm">Novo</a>
 

@@ -3,8 +3,8 @@
     <div id="mymap"></div>
 
     <script type="text/javascript">
-        var locations = <?php print_r(json_encode($locations)); ?>;
 
+        var locations = <?php print_r(json_encode($locations)); ?>;
 
         var mymap = new GMaps({
             el: '#mymap',
@@ -26,4 +26,15 @@
         });
     </script>
 
+    
+
+    
+
 </section>
+
+@section('scripts')
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&callback=initialize&language=pt-BR&region=BR" async defer></script>
+<script src="/js/mapInput.js"></script>
+<script>
+</script>
+@endsection

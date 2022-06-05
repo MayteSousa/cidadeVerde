@@ -1,6 +1,7 @@
 @extends('layouts.crud')
 
 @section('content')
+
     <a href="/ecoponto/create" class="btn btn-primary btn-sm">Novo</a>
 
     <div class="card">
@@ -19,11 +20,13 @@
                     <div class="col">
                         <button>Pesquisar</button>
                         <a href="/ecoponto" class="btn btn-primary btn-sm">Exibir Todos</a>
-                        <a href="/mapa_ecopontos" class="btn btn-primary btn-sm">Mapa</a>
+                        
                         <a href="/home" class="btn btn-primary btn-sm">Voltar</a>
                     </div>
                     
                 </div>
+                <br>
+                <a href="/mapa_ecopontos" class="btn btn-primary btn-sm">Mapa</a>
             
             </form>   
                 

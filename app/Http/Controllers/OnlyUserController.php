@@ -17,20 +17,29 @@ class OnlyUserController extends Controller
 
             $dados = User::where([
                 ['name', 'like', '%'.$search.'%'],
-                ['ecoponto', 0],
-                ['administrador', 0]
+                ['ecoponto', '=', false],
+                ['administrador', '=', false],
+                
+                ['ecoponto', '=', 0],
+                ['administrador', '=', 0]
             ])->orWhere([
                 ['email', 'like', '%'.$search.'%'],
-                ['ecoponto', 0],
-                ['administrador', 0]
+                ['ecoponto', '=', false],
+                ['administrador', '=', false],
+                
+                ['ecoponto', '=', 0],
+                ['administrador', '=', 0]
             ])->orderBy('id')->get();
 
         } else {
             $dados = User::where([
-                ['ecoponto', 0],
-                ['administrador', 0]
+                ['ecoponto', '=', false],
+                ['administrador', '=', false],
+                
+                ['ecoponto', '=', 0],
+                ['administrador', '=', 0]
             ])->orderBy('id')->get();
-        }        
+        }              
     
         return view('admin.user_only.index',['dados' => $dados, 'search' => $search]);
     }

@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        //\App\Models\User::factory(10)->create();
         //\App\Models\Ecoponto::factory(5)->create();
 
       /* DB::table('users')->insert(
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
                 ],                
             ]
         );
-*/
+
 
         DB::table('ecopontos')->insert(
             [
@@ -130,7 +130,40 @@ class DatabaseSeeder extends Seeder
                     'lng' => '-24.015891505895024',
                 ],
             ]
-        );
+        );*/
+/*
+        DB::table('materials')->insert(
+            [
+                [
+                    'name'=>'Cama',
+                    'tipo_material'=>'Madeira',
+                ],
 
+                [
+                    'name'=>'Sofá',
+                    'tipo_material'=>'Madeira',
+                ]
+
+                ,
+
+                [
+                    'name'=>'Geladeira',
+                    'tipo_material'=>'Metal',
+                ]
+
+                ,
+
+                [
+                    'name'=>'Jornais',
+                    'tipo_material'=>'Papel',
+                ],
+
+                [
+                    'name'=>'Garrafas',
+                    'tipo_materia'=>'Vidro',
+                ]
+            ]
+        );*/
+        
     }
 }

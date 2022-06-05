@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -40,10 +41,32 @@ class UserController extends Controller
             return back()->with("status", "{{ __('Senha alterada com sucesso!')}}");
     }
 
+    public function contarUsuarios() {
+        
+        $only_users = User::where('administrador',false AND 'ecoponto',false)->count();
+
+        $only_admin = User::where('administrador','=',1)->count();
+
+        $only_ecoponto = User::where('ecoponto','=',1)->count();
+
+        $users_total=DB::table('users')->count();
+
+        
+        return view('home')->with(
+            [
+                'qtd_user' => $only_users,
+                'qtd_admin' => $only_admin,
+                'qtd_ecoponto' => $only_ecoponto,
+                'qtd_total' => $users_total
+            ]
+        );
+    }
+
+
 
     public function index(Request $request)
     {
-       // $usuarios = User::paginate(10);
+        $usuarios = User::paginate(10);
        
        
        $search = $request->search;

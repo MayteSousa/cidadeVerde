@@ -8,6 +8,7 @@ use \App\Http\Controllers\UserEcopontoController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\OnlyUserController;
 use \App\Http\Controllers\EcopontoController;
+use \App\Http\Controllers\MaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 #EXIBE NA HOME QUANTIDADEDE USUARIOS
-Route::get('home', [HomeController::class, 'contarUsuarios'])->name('home')->middleware(['auth']);
+Route::get('home', [UserController::class, 'contarUsuarios'])
+->name('home')->middleware(['auth']);
 
 #PROFILE
 Route::get('/profile', function () {
@@ -74,6 +76,9 @@ Route::get('/mapa_ecopontos', [EcopontoController::class, 'gmaps2'])->name('mapa
 
 #ROTA ECOPONTOS
 Route::resource('ecoponto', EcopontoController::class);
+
+#ROTA MATERIAIS
+Route::resource('material', MaterialController::class);
 
 
 //PRECISA AUTENTICAR NO SISTEMA E SER ADMIN
